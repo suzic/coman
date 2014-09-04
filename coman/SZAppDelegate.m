@@ -16,10 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    // 启动时状态栏隐藏
+    [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     return YES;
 }
 

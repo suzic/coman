@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01F38E819B81A1400F376C3 /* SZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38E719B81A1400F376C3 /* SZMainViewController.m */; };
+		D01F38EB19B81A4100F376C3 /* SZActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38EA19B81A4100F376C3 /* SZActivityViewController.m */; };
+		D01F38EE19B81A5400F376C3 /* SZGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38ED19B81A5400F376C3 /* SZGroupViewController.m */; };
+		D01F38F119B81A6100F376C3 /* SZFellowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38F019B81A6100F376C3 /* SZFellowsViewController.m */; };
+		D01F38F619B8675800F376C3 /* SZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38F519B8675800F376C3 /* SZSettingsViewController.m */; };
+		D01F38FA19B868D600F376C3 /* SZFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F38F919B868D600F376C3 /* SZFavoriteViewController.m */; };
+		D058F25C19B72EFE006C4B60 /* SZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F25B19B72EFE006C4B60 /* SZViewController.m */; };
+		D058F27419B8043E006C4B60 /* SZTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F27319B8043E006C4B60 /* SZTabController.m */; };
+		D058F27E19B80962006C4B60 /* SZCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F27D19B80962006C4B60 /* SZCategoryViewController.m */; };
+		D058F28119B80985006C4B60 /* SZToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F28019B80985006C4B60 /* SZToolsViewController.m */; };
 		D0F308CC19B718790073C9CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CB19B718790073C9CD /* Foundation.framework */; };
 		D0F308CE19B718790073C9CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CD19B718790073C9CD /* CoreGraphics.framework */; };
 		D0F308D019B718790073C9CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CF19B718790073C9CD /* UIKit.framework */; };
@@ -22,6 +32,7 @@
 		D0F308ED19B718790073C9CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308D119B718790073C9CD /* CoreData.framework */; };
 		D0F308F519B718790073C9CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0F308F319B718790073C9CD /* InfoPlist.strings */; };
 		D0F308F719B718790073C9CD /* comanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F308F619B718790073C9CD /* comanTests.m */; };
+		D0F3090119B718950073C9CD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0F3090019B718950073C9CD /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01F38E619B81A1400F376C3 /* SZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZMainViewController.h; sourceTree = "<group>"; };
+		D01F38E719B81A1400F376C3 /* SZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZMainViewController.m; sourceTree = "<group>"; };
+		D01F38E919B81A4100F376C3 /* SZActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZActivityViewController.h; sourceTree = "<group>"; };
+		D01F38EA19B81A4100F376C3 /* SZActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZActivityViewController.m; sourceTree = "<group>"; };
+		D01F38EC19B81A5400F376C3 /* SZGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGroupViewController.h; sourceTree = "<group>"; };
+		D01F38ED19B81A5400F376C3 /* SZGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZGroupViewController.m; sourceTree = "<group>"; };
+		D01F38EF19B81A6100F376C3 /* SZFellowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFellowsViewController.h; sourceTree = "<group>"; };
+		D01F38F019B81A6100F376C3 /* SZFellowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZFellowsViewController.m; sourceTree = "<group>"; };
+		D01F38F419B8675800F376C3 /* SZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZSettingsViewController.h; sourceTree = "<group>"; };
+		D01F38F519B8675800F376C3 /* SZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZSettingsViewController.m; sourceTree = "<group>"; };
+		D01F38F819B868D600F376C3 /* SZFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFavoriteViewController.h; sourceTree = "<group>"; };
+		D01F38F919B868D600F376C3 /* SZFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZFavoriteViewController.m; sourceTree = "<group>"; };
+		D058F25A19B72EFE006C4B60 /* SZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZViewController.h; sourceTree = "<group>"; };
+		D058F25B19B72EFE006C4B60 /* SZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZViewController.m; sourceTree = "<group>"; };
+		D058F25E19B7305C006C4B60 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		D058F27219B8043E006C4B60 /* SZTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTabController.h; sourceTree = "<group>"; };
+		D058F27319B8043E006C4B60 /* SZTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTabController.m; sourceTree = "<group>"; };
+		D058F27C19B80962006C4B60 /* SZCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCategoryViewController.h; sourceTree = "<group>"; };
+		D058F27D19B80962006C4B60 /* SZCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCategoryViewController.m; sourceTree = "<group>"; };
+		D058F27F19B80985006C4B60 /* SZToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZToolsViewController.h; sourceTree = "<group>"; };
+		D058F28019B80985006C4B60 /* SZToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZToolsViewController.m; sourceTree = "<group>"; };
 		D0F308C819B718790073C9CD /* coman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F308CB19B718790073C9CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0F308CD19B718790073C9CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +85,7 @@
 		D0F308F219B718790073C9CD /* comanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "comanTests-Info.plist"; sourceTree = "<group>"; };
 		D0F308F419B718790073C9CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0F308F619B718790073C9CD /* comanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comanTests.m; sourceTree = "<group>"; };
+		D0F3090019B718950073C9CD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +114,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D01F38E219B819DB00F376C3 /* page_activity */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38E919B81A4100F376C3 /* SZActivityViewController.h */,
+				D01F38EA19B81A4100F376C3 /* SZActivityViewController.m */,
+			);
+			path = page_activity;
+			sourceTree = "<group>";
+		};
+		D01F38E319B819DB00F376C3 /* page_fellows */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38EF19B81A6100F376C3 /* SZFellowsViewController.h */,
+				D01F38F019B81A6100F376C3 /* SZFellowsViewController.m */,
+			);
+			path = page_fellows;
+			sourceTree = "<group>";
+		};
+		D01F38E419B819DB00F376C3 /* page_group */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38EC19B81A5400F376C3 /* SZGroupViewController.h */,
+				D01F38ED19B81A5400F376C3 /* SZGroupViewController.m */,
+			);
+			path = page_group;
+			sourceTree = "<group>";
+		};
+		D01F38E519B819DB00F376C3 /* page_main */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38E619B81A1400F376C3 /* SZMainViewController.h */,
+				D01F38E719B81A1400F376C3 /* SZMainViewController.m */,
+			);
+			path = page_main;
+			sourceTree = "<group>";
+		};
+		D01F38F319B8675800F376C3 /* page_settings */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38F419B8675800F376C3 /* SZSettingsViewController.h */,
+				D01F38F519B8675800F376C3 /* SZSettingsViewController.m */,
+			);
+			path = page_settings;
+			sourceTree = "<group>";
+		};
+		D01F38F719B868B400F376C3 /* page_favorite */ = {
+			isa = PBXGroup;
+			children = (
+				D01F38F819B868D600F376C3 /* SZFavoriteViewController.h */,
+				D01F38F919B868D600F376C3 /* SZFavoriteViewController.m */,
+			);
+			path = page_favorite;
+			sourceTree = "<group>";
+		};
 		D0F308BF19B718790073C9CD = {
 			isa = PBXGroup;
 			children = (
@@ -115,10 +202,25 @@
 		D0F308D319B718790073C9CD /* coman */ = {
 			isa = PBXGroup;
 			children = (
+				D01F38E519B819DB00F376C3 /* page_main */,
+				D01F38E219B819DB00F376C3 /* page_activity */,
+				D01F38E419B819DB00F376C3 /* page_group */,
+				D01F38E319B819DB00F376C3 /* page_fellows */,
+				D01F38F719B868B400F376C3 /* page_favorite */,
+				D01F38F319B8675800F376C3 /* page_settings */,
 				D0F308DC19B718790073C9CD /* SZAppDelegate.h */,
 				D0F308DD19B718790073C9CD /* SZAppDelegate.m */,
-				D0F308E219B718790073C9CD /* Images.xcassets */,
+				D058F25A19B72EFE006C4B60 /* SZViewController.h */,
+				D058F25B19B72EFE006C4B60 /* SZViewController.m */,
+				D058F27219B8043E006C4B60 /* SZTabController.h */,
+				D058F27319B8043E006C4B60 /* SZTabController.m */,
+				D058F27C19B80962006C4B60 /* SZCategoryViewController.h */,
+				D058F27D19B80962006C4B60 /* SZCategoryViewController.m */,
+				D058F27F19B80985006C4B60 /* SZToolsViewController.h */,
+				D058F28019B80985006C4B60 /* SZToolsViewController.m */,
+				D0F3090019B718950073C9CD /* Storyboard.storyboard */,
 				D0F308DF19B718790073C9CD /* coman.xcdatamodeld */,
+				D0F308E219B718790073C9CD /* Images.xcassets */,
 				D0F308D419B718790073C9CD /* Supporting Files */,
 			);
 			path = coman;
@@ -127,6 +229,7 @@
 		D0F308D419B718790073C9CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D058F25E19B7305C006C4B60 /* constants.h */,
 				D0F308D519B718790073C9CD /* coman-Info.plist */,
 				D0F308D619B718790073C9CD /* InfoPlist.strings */,
 				D0F308D919B718790073C9CD /* main.m */,
@@ -201,6 +304,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Suzic;
 				TargetAttributes = {
+					D0F308C719B718790073C9CD = {
+						DevelopmentTeam = XEW439Z58D;
+					};
 					D0F308E719B718790073C9CD = {
 						TestTargetID = D0F308C719B718790073C9CD;
 					};
@@ -231,6 +337,7 @@
 			files = (
 				D0F308D819B718790073C9CD /* InfoPlist.strings in Resources */,
 				D0F308E319B718790073C9CD /* Images.xcassets in Resources */,
+				D0F3090119B718950073C9CD /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +357,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F308DA19B718790073C9CD /* main.m in Sources */,
+				D01F38F619B8675800F376C3 /* SZSettingsViewController.m in Sources */,
+				D01F38E819B81A1400F376C3 /* SZMainViewController.m in Sources */,
+				D058F25C19B72EFE006C4B60 /* SZViewController.m in Sources */,
+				D01F38FA19B868D600F376C3 /* SZFavoriteViewController.m in Sources */,
 				D0F308E119B718790073C9CD /* coman.xcdatamodeld in Sources */,
+				D058F27419B8043E006C4B60 /* SZTabController.m in Sources */,
+				D01F38EB19B81A4100F376C3 /* SZActivityViewController.m in Sources */,
+				D01F38EE19B81A5400F376C3 /* SZGroupViewController.m in Sources */,
+				D058F28119B80985006C4B60 /* SZToolsViewController.m in Sources */,
+				D01F38F119B81A6100F376C3 /* SZFellowsViewController.m in Sources */,
 				D0F308DE19B718790073C9CD /* SZAppDelegate.m in Sources */,
+				D058F27E19B80962006C4B60 /* SZCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,9 +485,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "coman/coman-Prefix.pch";
 				INFOPLIST_FILE = "coman/coman-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -381,9 +500,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "coman/coman-Prefix.pch";
 				INFOPLIST_FILE = "coman/coman-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -448,6 +569,7 @@
 				D0F308FC19B718790073C9CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0F308FD19B718790073C9CD /* Build configuration list for PBXNativeTarget "comanTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +578,7 @@
 				D0F308FF19B718790073C9CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
