@@ -17,6 +17,10 @@
 		D058F27419B8043E006C4B60 /* SZTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F27319B8043E006C4B60 /* SZTabController.m */; };
 		D058F27E19B80962006C4B60 /* SZCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F27D19B80962006C4B60 /* SZCategoryViewController.m */; };
 		D058F28119B80985006C4B60 /* SZToolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F28019B80985006C4B60 /* SZToolsViewController.m */; };
+		D07A5D9619B87059001C11D1 /* SZCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5D9519B87059001C11D1 /* SZCollectionLayout.m */; };
+		D07A5D9919B8760E001C11D1 /* SZCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5D9819B8760E001C11D1 /* SZCollectionDataSource.m */; };
+		D07A5D9C19B87681001C11D1 /* SZCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5D9B19B87681001C11D1 /* SZCollectionViewCell.m */; };
+		D07A5DA119B878B7001C11D1 /* SampleUnitData.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5DA019B878B7001C11D1 /* SampleUnitData.m */; };
 		D0F308CC19B718790073C9CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CB19B718790073C9CD /* Foundation.framework */; };
 		D0F308CE19B718790073C9CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CD19B718790073C9CD /* CoreGraphics.framework */; };
 		D0F308D019B718790073C9CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CF19B718790073C9CD /* UIKit.framework */; };
@@ -67,6 +71,15 @@
 		D058F27D19B80962006C4B60 /* SZCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCategoryViewController.m; sourceTree = "<group>"; };
 		D058F27F19B80985006C4B60 /* SZToolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZToolsViewController.h; sourceTree = "<group>"; };
 		D058F28019B80985006C4B60 /* SZToolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZToolsViewController.m; sourceTree = "<group>"; };
+		D07A5D9419B87059001C11D1 /* SZCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionLayout.h; sourceTree = "<group>"; };
+		D07A5D9519B87059001C11D1 /* SZCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCollectionLayout.m; sourceTree = "<group>"; };
+		D07A5D9719B8760E001C11D1 /* SZCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionDataSource.h; sourceTree = "<group>"; };
+		D07A5D9819B8760E001C11D1 /* SZCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCollectionDataSource.m; sourceTree = "<group>"; };
+		D07A5D9A19B87681001C11D1 /* SZCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionViewCell.h; sourceTree = "<group>"; };
+		D07A5D9B19B87681001C11D1 /* SZCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCollectionViewCell.m; sourceTree = "<group>"; };
+		D07A5D9D19B87733001C11D1 /* SZCellUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZCellUnit.h; sourceTree = "<group>"; };
+		D07A5D9F19B878B7001C11D1 /* SampleUnitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleUnitData.h; sourceTree = "<group>"; };
+		D07A5DA019B878B7001C11D1 /* SampleUnitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleUnitData.m; sourceTree = "<group>"; };
 		D0F308C819B718790073C9CD /* coman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F308CB19B718790073C9CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0F308CD19B718790073C9CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +159,13 @@
 			children = (
 				D01F38E619B81A1400F376C3 /* SZMainViewController.h */,
 				D01F38E719B81A1400F376C3 /* SZMainViewController.m */,
+				D07A5D9A19B87681001C11D1 /* SZCollectionViewCell.h */,
+				D07A5D9B19B87681001C11D1 /* SZCollectionViewCell.m */,
+				D07A5D9719B8760E001C11D1 /* SZCollectionDataSource.h */,
+				D07A5D9819B8760E001C11D1 /* SZCollectionDataSource.m */,
+				D07A5D9419B87059001C11D1 /* SZCollectionLayout.h */,
+				D07A5D9519B87059001C11D1 /* SZCollectionLayout.m */,
+				D07A5D9D19B87733001C11D1 /* SZCellUnit.h */,
 			);
 			path = page_main;
 			sourceTree = "<group>";
@@ -166,6 +186,15 @@
 				D01F38F919B868D600F376C3 /* SZFavoriteViewController.m */,
 			);
 			path = page_favorite;
+			sourceTree = "<group>";
+		};
+		D07A5D9E19B8788C001C11D1 /* sample_data */ = {
+			isa = PBXGroup;
+			children = (
+				D07A5D9F19B878B7001C11D1 /* SampleUnitData.h */,
+				D07A5DA019B878B7001C11D1 /* SampleUnitData.m */,
+			);
+			path = sample_data;
 			sourceTree = "<group>";
 		};
 		D0F308BF19B718790073C9CD = {
@@ -218,6 +247,7 @@
 				D058F27D19B80962006C4B60 /* SZCategoryViewController.m */,
 				D058F27F19B80985006C4B60 /* SZToolsViewController.h */,
 				D058F28019B80985006C4B60 /* SZToolsViewController.m */,
+				D07A5D9E19B8788C001C11D1 /* sample_data */,
 				D0F3090019B718950073C9CD /* Storyboard.storyboard */,
 				D0F308DF19B718790073C9CD /* coman.xcdatamodeld */,
 				D0F308E219B718790073C9CD /* Images.xcassets */,
@@ -356,14 +386,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07A5D9919B8760E001C11D1 /* SZCollectionDataSource.m in Sources */,
+				D07A5D9619B87059001C11D1 /* SZCollectionLayout.m in Sources */,
 				D0F308DA19B718790073C9CD /* main.m in Sources */,
 				D01F38F619B8675800F376C3 /* SZSettingsViewController.m in Sources */,
 				D01F38E819B81A1400F376C3 /* SZMainViewController.m in Sources */,
+				D07A5D9C19B87681001C11D1 /* SZCollectionViewCell.m in Sources */,
 				D058F25C19B72EFE006C4B60 /* SZViewController.m in Sources */,
 				D01F38FA19B868D600F376C3 /* SZFavoriteViewController.m in Sources */,
 				D0F308E119B718790073C9CD /* coman.xcdatamodeld in Sources */,
 				D058F27419B8043E006C4B60 /* SZTabController.m in Sources */,
 				D01F38EB19B81A4100F376C3 /* SZActivityViewController.m in Sources */,
+				D07A5DA119B878B7001C11D1 /* SampleUnitData.m in Sources */,
 				D01F38EE19B81A5400F376C3 /* SZGroupViewController.m in Sources */,
 				D058F28119B80985006C4B60 /* SZToolsViewController.m in Sources */,
 				D01F38F119B81A6100F376C3 /* SZFellowsViewController.m in Sources */,

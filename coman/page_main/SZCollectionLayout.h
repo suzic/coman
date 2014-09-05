@@ -1,5 +1,5 @@
 //
-//  SZFavoriteViewController.h
+//  SZCollectionLayout.h
 //  coman
 //
 //  Created by 苏智 on 14-9-4.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- * @abstract 收藏视图
- */
-@interface SZFavoriteViewController : UITableViewController
+@interface SZCollectionLayout : UICollectionViewFlowLayout
 
 @end

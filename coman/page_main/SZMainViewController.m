@@ -7,8 +7,11 @@
 //
 
 #import "SZMainViewController.h"
+#import "SZCollectionDataSource.h"
 
 @interface SZMainViewController ()
+
+// @property (strong, nonatomic) IBOutlet SZCollectionDataSource *unitDataSource;
 
 @end
 
@@ -27,6 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    // Define cell and header view configuration
+    SZCollectionDataSource *dataSource = (SZCollectionDataSource *)self.collectionView.dataSource;
+    dataSource.configureCellBlock = ^(SZCollectionViewCell *cell, NSIndexPath *indexPath, id<SZCellUnit> event) {
+        //cell.titleLabel.text = event.title;
+    };
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +58,7 @@
 
 #pragma mark - Collection View Delegate
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+/*- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 6;
 }
@@ -58,7 +67,7 @@
 {
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"small_rect" forIndexPath:indexPath];
     return cell;
-}
+}*/
 
 
 /*
