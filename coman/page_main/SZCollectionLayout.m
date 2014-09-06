@@ -9,11 +9,6 @@
 #import "SZCollectionLayout.h"
 #import "SZCollectionDataSource.h"
 
-static const NSUInteger TotalUnitCountInWidth = 3;
-static const NSUInteger TotalUnitCountInHeight = 8;
-static const CGFloat CellInsect = 1;
-static const CGFloat HeightPerRow = 320 / TotalUnitCountInWidth;
-
 /**
  * @abstract 定义一个剩余可用布局空间对象
  */

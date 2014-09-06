@@ -51,39 +51,8 @@
             break;
     }
     
-    uint32_t randomType = arc4random_uniform(8);
-    
-    // uint32_t randomID = arc4random_uniform(10000);
-    // NSString *title = [NSString stringWithFormat:@"Unit #%u", randomID];
-    NSString *title = nil;
-    switch (randomType)
-    {
-        default:
-        case 0:
-            title = [NSString stringWithFormat:@"1 x 1"];
-            break;
-        case 1:
-            title = [NSString stringWithFormat:@"2 x 1"];
-            break;
-        case 2:
-            title = [NSString stringWithFormat:@"3 x 1"];
-            break;
-        case 3:
-            title = [NSString stringWithFormat:@"4 x 1"];
-            break;
-        case 4:
-            title = [NSString stringWithFormat:@"1 x 2"];
-            break;
-        case 5:
-            title = [NSString stringWithFormat:@"2 x 2"];
-            break;
-        case 6:
-            title = [NSString stringWithFormat:@"3 x 2"];
-            break;
-        case 7:
-            title = [NSString stringWithFormat:@"4 x 2"];
-            break;
-    }
+    uint32_t randomType = arc4random_uniform(MaxCellHeightUnit * TotalUnitCountInWidth);
+    NSString *title = [NSString stringWithFormat:@"%d x %d", (randomType % TotalUnitCountInWidth + 1), (randomType / TotalUnitCountInWidth + 1)];
     return [self unitWithTitle:title size:randomType color:color];
 }
 
@@ -106,7 +75,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"The unit size is : No.%ld %@", (long)self.index, self.title];
+    return [NSString stringWithFormat:@"The unit size is : No.%2ld %@", (long)self.index, self.title];
 }
 
 @end
