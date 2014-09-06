@@ -18,7 +18,7 @@
 @synthesize cellSizeType = _cellSizeType;
 @synthesize cellColor = _cellColor;
 
-+ (instancetype)randomUnit
++ (instancetype)randomUnitWidth:(NSInteger)maxWidth andHeight:(NSInteger)maxHeight
 {
     uint32_t randomColor = arc4random_uniform(8);
     UIColor* color = [UIColor whiteColor];
@@ -51,8 +51,8 @@
             break;
     }
     
-    uint32_t randomType = arc4random_uniform(MaxCellHeightUnit * TotalUnitCountInWidth);
-    NSString *title = [NSString stringWithFormat:@"%d x %d", (randomType % TotalUnitCountInWidth + 1), (randomType / TotalUnitCountInWidth + 1)];
+    uint32_t randomType = arc4random_uniform(maxHeight * maxWidth);
+    NSString *title = [NSString stringWithFormat:@"%d x %d", (randomType % maxWidth + 1), (randomType / maxWidth + 1)];
     return [self unitWithTitle:title size:randomType color:color];
 }
 

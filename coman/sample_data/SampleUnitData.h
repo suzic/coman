@@ -11,7 +11,7 @@
 
 @interface SampleUnitData : NSObject <SZCellUnit>
 
-+ (instancetype)randomUnit;
++ (instancetype)randomUnitWidth:(NSInteger)maxWidth andHeight:(NSInteger)maxHeight;
 
 + (instancetype)unitWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor;
 - (instancetype)initWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor;

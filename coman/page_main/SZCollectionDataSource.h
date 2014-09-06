@@ -26,6 +26,6 @@ typedef void (^ConfigureCellBlock)(SZCollectionViewCell *cell, NSIndexPath *inde
 /**
  * @abstract Use for re-generate the sample data
  */
-- (void)reGenerateSampleData;
+- (void)generateSampleData;
 
 @end

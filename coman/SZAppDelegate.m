@@ -19,6 +19,7 @@
     // 启动时状态栏隐藏
     [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
+    [self initLayoutParametersW:4 H:2];
     return YES;
 }
 
@@ -48,6 +49,18 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)initLayoutParametersW:(NSInteger)mw H:(NSInteger)mh
+{
+    self.MaxCellWidthUnit = mw;
+    self.MaxCellHeightUnit = mh;
+    
+    self.TotalUnitCountInWidth = self.MaxCellWidthUnit;
+    self.TotalUnitCountInHeight = 8;
+    
+    self.CellInsect = 1.0f;
+    self.HeightPerRow = 320 / self.TotalUnitCountInWidth;
 }
 
 - (void)saveContext

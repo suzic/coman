@@ -8,8 +8,9 @@
 
 #import "SZMainViewController.h"
 #import "SZCollectionDataSource.h"
+#import "SZAppDelegate.h"
 
-@interface SZMainViewController () <UITabBarControllerDelegate>
+@interface SZMainViewController () <UIActionSheetDelegate>
 
 @end
 
@@ -19,14 +20,7 @@
 {
     [super viewDidLoad];
     
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataSource:) name:ReloadMainPageDataSource object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    SZCollectionDataSource *dataSource = (SZCollectionDataSource *)self.collectionView.dataSource;
-    //[dataSource reGenerateSampleData];
-    [self initDataSource:dataSource];
+    [self initDataSource];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,18 +29,51 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)reloadDataSource:(NSNotification *)notification
+- (void)initDataSource
 {
-
-}
-
-- (void)initDataSource:(SZCollectionDataSource *)dataSource
-{
+    SZCollectionDataSource *dataSource = (SZCollectionDataSource *)self.collectionView.dataSource;
+    [dataSource generateSampleData];
     dataSource.configureCellBlock = ^(SZCollectionViewCell *cell, NSIndexPath *indexPath, id<SZCellUnit> unit) {
         // 在这里对cell进行定制！
         cell.titleLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
         cell.backgroundColor = unit.cellColor;
     };
+}
+
+- (IBAction)reloadFlow:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"创建一个随机布局"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"最大格子尺寸 5 x 3", @"最大格子尺寸 4 x 2", @"最大格子尺寸 3 x 2", nil];
+    // actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    switch (buttonIndex)
+    {
+        case 0:
+            [ad initLayoutParametersW:5 H:3];
+            break;
+        case 1:
+            [ad initLayoutParametersW:4 H:2];
+            break;
+        case 2:
+            [ad initLayoutParametersW:3 H:2];
+            break;
+        default:
+            return;
+    }
+
+    [self initDataSource];
+    [self.collectionView reloadData];
+
 }
 
 #pragma mark - Switch Left/Right View

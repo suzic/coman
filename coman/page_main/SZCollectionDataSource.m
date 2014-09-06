@@ -8,6 +8,7 @@
 
 #import "SZCollectionDataSource.h"
 #import "SampleUnitData.h"
+#import "SZAppDelegate.h"
 
 @interface SZCollectionDataSource ()
 
@@ -20,29 +21,26 @@
 - (void)awakeFromNib
 {
     _units = [[NSMutableArray alloc] init];
-    
-    // Prepare some example events
-    // In a real app, these should be retrieved from the calendar data store (EventKit.framework)
-    // We use a very simple data format for our events. In a real calendar app, event times should be
-    // represented with NSDate objects and correct calendrical date calculcations should be used.
-    [self generateSampleData];
 }
 
 - (void)generateSampleData
 {
+    // Prepare some example events
+    // In a real app, these should be retrieved from the calendar data store (EventKit.framework)
+    // We use a very simple data format for our events. In a real calendar app, event times should be
+    // represented with NSDate objects and correct calendrical date calculcations should be used.
+
+    [_units removeAllObjects];
+    
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     // 在测试数据中，定义的场景大小是 4 x 12 ＝ 48 个单元的位置，生成的每个Cell占用1个单元到8个单元不等。
     for (NSUInteger idx = 0; idx < 40; idx++)
     {
-        SampleUnitData *unit = [SampleUnitData randomUnit];
+        SampleUnitData *unit = [SampleUnitData randomUnitWidth:ad.MaxCellWidthUnit andHeight:ad.MaxCellHeightUnit];
         unit.index = idx;
         [self.units addObject:unit];
     }
-}
-
-- (void)reGenerateSampleData
-{
-    [_units removeAllObjects];
-    [self generateSampleData];
 }
 
 #pragma mark - CalendarDataSource

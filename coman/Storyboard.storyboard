@@ -175,6 +175,11 @@
                                 <action selector="showCategoryView:" destination="ffO-f2-qJc" id="oHv-oN-wgI"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Tool3" id="Jxt-EQ-pPe">
+                            <connections>
+                                <action selector="reloadFlow:" destination="ffO-f2-qJc" id="aos-df-et1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnn-RC-6U2" userLabel="First Responder" sceneMemberID="firstResponder"/>

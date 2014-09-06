@@ -8,6 +8,7 @@
 
 #import "SZCollectionLayout.h"
 #import "SZCollectionDataSource.h"
+#import "SZAppDelegate.h"
 
 /**
  * @abstract 定义一个剩余可用布局空间对象
@@ -70,11 +71,13 @@
 // 设置整体视图的尺寸，横向不能滚动，纵向为 12 个单元行高
 - (CGSize)collectionViewContentSize
 {
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     // Don't scroll horizontally
     CGFloat contentWidth = self.collectionView.bounds.size.width;
     
     // Scroll vertically to display a full day
-    CGFloat contentHeight = HeightPerRow * TotalUnitCountInHeight + CellInsect;
+    CGFloat contentHeight = ad.HeightPerRow * ad.TotalUnitCountInHeight + ad.CellInsect;
     
     CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
     return contentSize;
@@ -83,6 +86,11 @@
 // 对可见的格子应用内部布局
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+    self.currentRowNumber = 0;
+    self.currentColumnNumber = 0;
+    self.currentHeightStep = 1;
+    [self.spareSpaces removeAllObjects];
+    
     NSMutableArray *layoutAttributes = [NSMutableArray array];
     
     // Cells
@@ -109,10 +117,6 @@
 // 要求边界变化时更新布局，比如横竖屏旋转时
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-    self.currentRowNumber = 0;
-    self.currentColumnNumber = 0;
-    self.currentHeightStep = 1;
-    [self.spareSpaces removeAllObjects];
     return YES;
 }
 
@@ -135,15 +139,17 @@
 
 - (NSInteger)colIndexFromXCoordinate:(CGFloat)xPosition
 {
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
     CGFloat contentWidth = [self collectionViewContentSize].width;
-    CGFloat widthPerCol = contentWidth / TotalUnitCountInWidth;
+    CGFloat widthPerCol = contentWidth / ad.TotalUnitCountInWidth;
     NSInteger colIndex = MAX((NSInteger)0, (NSInteger)(xPosition / widthPerCol));
     return colIndex;
 }
 
 - (NSInteger)rowIndexFromYCoordinate:(CGFloat)yPosition
 {
-    NSInteger rowIndex = MAX((NSInteger)0, (NSInteger)(yPosition / HeightPerRow));
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSInteger rowIndex = MAX((NSInteger)0, (NSInteger)(yPosition / ad.HeightPerRow));
     return rowIndex;
 }
 
@@ -152,16 +158,18 @@
 // 计算一个单元的尺寸和布局
 - (CGRect)frameForUnit:(id<SZCellUnit>)unit
 {
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     // 根据实际设备尺寸获取宽度（高度则是固定的）
     CGFloat totalWidth = [self collectionViewContentSize].width;
-    CGFloat unitWidth = (totalWidth - CellInsect) / TotalUnitCountInWidth;
+    CGFloat unitWidth = (totalWidth - ad.CellInsect) / ad.TotalUnitCountInWidth;
 
     // 根据cell type计算出其尺寸
     NSInteger cellType = unit.cellSizeType;
-    NSInteger hUnit = cellType / TotalUnitCountInWidth + 1;
-    NSInteger wUnit = cellType % TotalUnitCountInWidth + 1;
+    NSInteger hUnit = cellType / ad.TotalUnitCountInWidth + 1;
+    NSInteger wUnit = cellType % ad.TotalUnitCountInWidth + 1;
     CGFloat cellWidth = unitWidth * wUnit;
-    CGFloat cellHeight = HeightPerRow * hUnit;
+    CGFloat cellHeight = ad.HeightPerRow * hUnit;
     
     // 布局中的宽度和高度是必须满足的
     CGRect frame = CGRectZero;
@@ -214,20 +222,20 @@
             }
         }
         
-        frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
-        frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
-        frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
+        frame.origin.x = unit.colIndex * unitWidth + ad.CellInsect / 2;
+        frame.origin.y = unit.rowIndex * ad.HeightPerRow + ad.CellInsect / 2;
+        frame = CGRectInset(frame, ad.CellInsect / 2, ad.CellInsect / 2);
         return frame;
     }
     
     // 流布局已经完成，停止剩下的单元格流布局
-    if (self.currentRowNumber >= TotalUnitCountInHeight)
+    if (self.currentRowNumber >= ad.TotalUnitCountInHeight)
     {
-        unit.colIndex = TotalUnitCountInWidth; // 该位置必定超出行宽，看不到
+        unit.colIndex = ad.TotalUnitCountInWidth; // 该位置必定超出行宽，看不到
         unit.rowIndex = 0;
-        frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
-        frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
-        frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
+        frame.origin.x = unit.colIndex * unitWidth + ad.CellInsect / 2;
+        frame.origin.y = unit.rowIndex * ad.HeightPerRow + ad.CellInsect / 2;
+        frame = CGRectInset(frame, ad.CellInsect / 2, ad.CellInsect / 2);
         return frame;
     }
     
@@ -261,7 +269,7 @@
         }        
 
         self.currentColumnNumber += wUnit;
-        if (self.currentColumnNumber >= TotalUnitCountInWidth)
+        if (self.currentColumnNumber >= ad.TotalUnitCountInWidth)
         {
             // 流布局切换到新行时，重设行高默认为1
             self.currentRowNumber += self.currentHeightStep;
@@ -273,7 +281,7 @@
     {
         // 定义当前流剩余位置为空余位置的空间，不能布局下一个单元时即需要保存它。
         SpareSpace* newss = [[SpareSpace alloc] init];
-        newss->spareWidth = TotalUnitCountInWidth - self.currentColumnNumber;
+        newss->spareWidth = ad.TotalUnitCountInWidth - self.currentColumnNumber;
         newss->spareHeight = self.currentHeightStep;
         newss->spareColIndex = self.currentColumnNumber;
         newss->spareRowIndex = self.currentRowNumber;
@@ -293,32 +301,32 @@
         else
         {
             // 开了新行还放不下新的单元就得报错了（该Frame会放在一个不可见位置）
-            unit.colIndex = TotalUnitCountInWidth;  // x起点定义到屏幕宽度会正好使该框不可见
+            unit.colIndex = ad.TotalUnitCountInWidth;  // x起点定义到屏幕宽度会正好使该框不可见
             unit.rowIndex = 0;
             // 即便放不下新的单元，还是把剩下的空间计算到空余空间中
             SpareSpace* newss = [[SpareSpace alloc] init];
-            newss->spareWidth = TotalUnitCountInWidth - self.currentColumnNumber;
-            newss->spareHeight = TotalUnitCountInHeight - self.currentRowNumber;
+            newss->spareWidth = ad.TotalUnitCountInWidth - self.currentColumnNumber;
+            newss->spareHeight = ad.TotalUnitCountInHeight - self.currentRowNumber;
             newss->spareColIndex = self.currentColumnNumber;
             newss->spareRowIndex = self.currentRowNumber;
             [self addNewSpareSpace:newss];
             NSLog(@"%@ 没位置了!", unit);
             
             // 将最终的游标位置设到结尾，后面的单元不再参与流布局
-            self.currentRowNumber = TotalUnitCountInHeight;
-            self.currentColumnNumber = TotalUnitCountInWidth;
+            self.currentRowNumber = ad.TotalUnitCountInHeight;
+            self.currentColumnNumber = ad.TotalUnitCountInWidth;
         }
         
         self.currentColumnNumber += wUnit;
-        if (self.currentColumnNumber >= TotalUnitCountInWidth)
+        if (self.currentColumnNumber >= ad.TotalUnitCountInWidth)
         {
             self.currentRowNumber += self.currentHeightStep;
             self.currentColumnNumber = 0;
         }
     }
-    frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
-    frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
-    frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
+    frame.origin.x = unit.colIndex * unitWidth + ad.CellInsect / 2;
+    frame.origin.y = unit.rowIndex * ad.HeightPerRow + ad.CellInsect / 2;
+    frame = CGRectInset(frame, ad.CellInsect / 2, ad.CellInsect / 2);
     return frame;
 }
 
@@ -360,8 +368,9 @@
 
 - (bool)currentPositionIsAvaliableForUnitW:(NSInteger)wUnit andUnitH:(NSInteger)hUnit
 {
-    if ((wUnit + self.currentColumnNumber) > TotalUnitCountInWidth
-        || (hUnit + self.currentRowNumber) > TotalUnitCountInHeight)
+    SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
+    if ((wUnit + self.currentColumnNumber) > ad.TotalUnitCountInWidth
+        || (hUnit + self.currentRowNumber) > ad.TotalUnitCountInHeight)
         return NO;
     return YES;
 }
