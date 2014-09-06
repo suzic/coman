@@ -12,7 +12,8 @@
 @interface SampleUnitData : NSObject <SZCellUnit>
 
 + (instancetype)randomUnit;
-+ (instancetype)unitWithTitle:(NSString *)title day:(NSUInteger)day startHour:(NSUInteger)startHour durationInHours:(NSUInteger)durationInHours;
-- (instancetype)initWithTitle:(NSString *)title day:(NSUInteger)day startHour:(NSUInteger)startHour durationInHours:(NSUInteger)durationInHours;
+
++ (instancetype)unitWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor;
+- (instancetype)initWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor;
 
 @end

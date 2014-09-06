@@ -10,4 +10,6 @@
 
 @interface SZCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end

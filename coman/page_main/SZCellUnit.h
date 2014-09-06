@@ -10,9 +10,13 @@
 
 @protocol SZCellUnit <NSObject>
 
+@property (assign, nonatomic) NSInteger index;
+@property (assign, nonatomic) NSInteger rowIndex;
+@property (assign, nonatomic) NSInteger colIndex;
+
 @property (copy, nonatomic) NSString *title;
-@property (assign, nonatomic) NSInteger day;
-@property (assign, nonatomic) NSInteger startHour;
-@property (assign, nonatomic) NSInteger durationInHours;
+@property (copy, nonatomic) UIColor* cellColor;
+
+@property (assign, nonatomic) CellType cellSizeType;
 
 @end

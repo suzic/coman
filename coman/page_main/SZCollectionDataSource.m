@@ -30,11 +30,19 @@
 
 - (void)generateSampleData
 {
-    for (NSUInteger idx = 0; idx < 20; idx++)
+    // 在测试数据中，定义的场景大小是 4 x 12 ＝ 48 个单元的位置，生成的每个Cell占用1个单元到8个单元不等。
+    for (NSUInteger idx = 0; idx < 40; idx++)
     {
         SampleUnitData *unit = [SampleUnitData randomUnit];
+        unit.index = idx;
         [self.units addObject:unit];
     }
+}
+
+- (void)reGenerateSampleData
+{
+    [_units removeAllObjects];
+    [self generateSampleData];
 }
 
 #pragma mark - CalendarDataSource
@@ -46,11 +54,15 @@
     return self.units[indexPath.item];
 }
 
-- (NSArray *)indexPathsOfUnitsBetweenMinDayIndex:(NSInteger)minDayIndex maxDayIndex:(NSInteger)maxDayIndex minStartHour:(NSInteger)minStartHour maxStartHour:(NSInteger)maxStartHour
+- (NSArray *)indexPathsOfUnitsBetweenMinColIndex:(NSInteger)minVisibleColIndex
+                                     maxColIndex:(NSInteger)maxVisibleColIndex
+                                     minRowIndex:(NSInteger)minVisibleRowIndex
+                                     maxRowIndex:(NSInteger)maxVisibleRowIndex
 {
     NSMutableArray *indexPaths = [NSMutableArray array];
     [self.units enumerateObjectsUsingBlock:^(id unit, NSUInteger idx, BOOL *stop) {
-        if ([unit day] >= minDayIndex && [unit day] <= maxDayIndex && [unit startHour] >= minStartHour && [unit startHour] <= maxStartHour)
+        if ([unit colIndex] >= minVisibleColIndex && [unit colIndex] <= maxVisibleColIndex
+            && [unit rowIndex] >= minVisibleRowIndex && [unit rowIndex] <= maxVisibleRowIndex)
         {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
             [indexPaths addObject:indexPath];

@@ -18,9 +18,14 @@ typedef void (^ConfigureCellBlock)(SZCollectionViewCell *cell, NSIndexPath *inde
 
 - (id<SZCellUnit>)unitAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSArray *)indexPathsOfUnitsBetweenMinDayIndex:(NSInteger)minDayIndex
-                                     maxDayIndex:(NSInteger)maxDayIndex
-                                    minStartHour:(NSInteger)minStartHour
-                                    maxStartHour:(NSInteger)maxStartHour;
+- (NSArray *)indexPathsOfUnitsBetweenMinColIndex:(NSInteger)minVisibleColIndex
+                                     maxColIndex:(NSInteger)maxVisibleColIndex
+                                     minRowIndex:(NSInteger)minVisibleRowIndex
+                                     maxRowIndex:(NSInteger)maxVisibleRowIndex;
+
+/**
+ * @abstract Use for re-generate the sample data
+ */
+- (void)reGenerateSampleData;
 
 @end

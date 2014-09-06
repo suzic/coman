@@ -50,7 +50,7 @@
 {
     [self backToCenterScreen:notification];
     
-    [self.centerView setFrame:CGRectMake(120, 0, self.centerView.frame.size.width, self.centerView.frame.size.height)];
+    [self.centerView setFrame:CGRectMake(128, 0, self.centerView.frame.size.width, self.centerView.frame.size.height)];
     [self.centerView addSubview:self.layerMaskView];
 }
 

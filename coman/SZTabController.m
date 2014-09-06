@@ -30,6 +30,9 @@
 {
     // Tab 切换时恢复主视图的显示
     [[NSNotificationCenter defaultCenter] postNotificationName:BackToCenterScreen object:self];
+    
+    //if ((NSInteger)item.tag == 1)
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:ReloadMainPageDataSource object:self];
 }
 
 /*

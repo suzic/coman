@@ -9,39 +9,44 @@
 #import "SZMainViewController.h"
 #import "SZCollectionDataSource.h"
 
-@interface SZMainViewController ()
-
-// @property (strong, nonatomic) IBOutlet SZCollectionDataSource *unitDataSource;
+@interface SZMainViewController () <UITabBarControllerDelegate>
 
 @end
 
 @implementation SZMainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataSource:) name:ReloadMainPageDataSource object:nil];
+}
 
-    // Define cell and header view configuration
+- (void)viewWillAppear:(BOOL)animated
+{
     SZCollectionDataSource *dataSource = (SZCollectionDataSource *)self.collectionView.dataSource;
-    dataSource.configureCellBlock = ^(SZCollectionViewCell *cell, NSIndexPath *indexPath, id<SZCellUnit> event) {
-        //cell.titleLabel.text = event.title;
-    };
+    //[dataSource reGenerateSampleData];
+    [self initDataSource:dataSource];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)reloadDataSource:(NSNotification *)notification
+{
+
+}
+
+- (void)initDataSource:(SZCollectionDataSource *)dataSource
+{
+    dataSource.configureCellBlock = ^(SZCollectionViewCell *cell, NSIndexPath *indexPath, id<SZCellUnit> unit) {
+        // 在这里对cell进行定制！
+        cell.titleLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+        cell.backgroundColor = unit.cellColor;
+    };
 }
 
 #pragma mark - Switch Left/Right View
@@ -55,20 +60,6 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:ShowRightToolkis object:self];
 }
-
-#pragma mark - Collection View Delegate
-
-/*- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 6;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"small_rect" forIndexPath:indexPath];
-    return cell;
-}*/
-
 
 /*
 #pragma mark - Navigation

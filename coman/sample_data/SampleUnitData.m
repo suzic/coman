@@ -10,44 +10,104 @@
 
 @implementation SampleUnitData
 
+@synthesize index = _index;
+@synthesize rowIndex = _rowIndex;
+@synthesize colIndex = _colIndex;
+
 @synthesize title = _title;
-@synthesize day = _day;
-@synthesize startHour = _startHour;
-@synthesize durationInHours = _durationInHours;
+@synthesize cellSizeType = _cellSizeType;
+@synthesize cellColor = _cellColor;
 
 + (instancetype)randomUnit
 {
-    uint32_t randomID = arc4random_uniform(10000);
-    NSString *title = [NSString stringWithFormat:@"Unit #%u", randomID];
+    uint32_t randomColor = arc4random_uniform(8);
+    UIColor* color = [UIColor whiteColor];
+    switch (randomColor)
+    {
+        case 0:
+            color = [UIColor blueColor];
+            break;
+        case 1:
+            color = [UIColor redColor];
+            break;
+        case 2:
+            color = [UIColor yellowColor];
+            break;
+        case 3:
+            color = [UIColor greenColor];
+            break;
+        case 4:
+            color = [UIColor grayColor];
+            break;
+        case 5:
+            color = [UIColor purpleColor];
+            break;
+        case 6:
+            color = [UIColor darkGrayColor];
+            break;
+        case 7:
+        default:
+            color = [UIColor lightGrayColor];
+            break;
+    }
     
-    uint32_t randomDay = arc4random_uniform(7);
-    uint32_t randomStartHour = arc4random_uniform(20);
-    uint32_t randomDuration = arc4random_uniform(5) + 1;
+    uint32_t randomType = arc4random_uniform(8);
     
-    return [self unitWithTitle:title day:randomDay startHour:randomStartHour durationInHours:randomDuration];
+    // uint32_t randomID = arc4random_uniform(10000);
+    // NSString *title = [NSString stringWithFormat:@"Unit #%u", randomID];
+    NSString *title = nil;
+    switch (randomType)
+    {
+        case CellType_Unit:
+            title = [NSString stringWithFormat:@"1 x 1"];
+            break;
+        case CellType_Small:
+            title = [NSString stringWithFormat:@"2 x 1"];
+            break;
+        case CellType_Wide:
+            title = [NSString stringWithFormat:@"3 x 1"];
+            break;
+        case CellType_Banner:
+            title = [NSString stringWithFormat:@"4 x 1"];
+            break;
+        case CellType_Book:
+            title = [NSString stringWithFormat:@"1 x 2"];
+            break;
+        case CellType_Block:
+            title = [NSString stringWithFormat:@"2 x 2"];
+            break;
+        case CellType_Large:
+            title = [NSString stringWithFormat:@"3 x 2"];
+            break;
+        case CellType_Great:
+            title = [NSString stringWithFormat:@"4 x 2"];
+            break;
+        default:
+            break;
+    }
+    return [self unitWithTitle:title size:randomType color:color];
 }
 
-+ (instancetype)unitWithTitle:(NSString *)title day:(NSUInteger)day startHour:(NSUInteger)startHour durationInHours:(NSUInteger)durationInHours
++ (instancetype)unitWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor
 {
-    return [[self alloc] initWithTitle:title day:day startHour:startHour durationInHours:durationInHours];
+    return [[self alloc] initWithTitle:title size:cellType color:cellColor];
 }
 
-- (instancetype)initWithTitle:(NSString *)title day:(NSUInteger)day startHour:(NSUInteger)startHour durationInHours:(NSUInteger)durationInHours
+- (instancetype)initWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor
 {
     self = [super init];
     if (self != nil)
     {
         _title = [title copy];
-        _day = day;
-        _startHour = startHour;
-        _durationInHours = durationInHours;
+        _cellSizeType = cellType;
+        _cellColor = cellColor;
     }
     return self;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@: Day %d - Hour %d - Duration %d", self.title, self.day, self.startHour, self.durationInHours];
+    return [NSString stringWithFormat:@"The unit size is : No.%ld %@", (long)self.index, self.title];
 }
 
 @end
