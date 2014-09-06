@@ -58,42 +58,41 @@
     NSString *title = nil;
     switch (randomType)
     {
-        case CellType_Unit:
+        default:
+        case 0:
             title = [NSString stringWithFormat:@"1 x 1"];
             break;
-        case CellType_Small:
+        case 1:
             title = [NSString stringWithFormat:@"2 x 1"];
             break;
-        case CellType_Wide:
+        case 2:
             title = [NSString stringWithFormat:@"3 x 1"];
             break;
-        case CellType_Banner:
+        case 3:
             title = [NSString stringWithFormat:@"4 x 1"];
             break;
-        case CellType_Book:
+        case 4:
             title = [NSString stringWithFormat:@"1 x 2"];
             break;
-        case CellType_Block:
+        case 5:
             title = [NSString stringWithFormat:@"2 x 2"];
             break;
-        case CellType_Large:
+        case 6:
             title = [NSString stringWithFormat:@"3 x 2"];
             break;
-        case CellType_Great:
+        case 7:
             title = [NSString stringWithFormat:@"4 x 2"];
-            break;
-        default:
             break;
     }
     return [self unitWithTitle:title size:randomType color:color];
 }
 
-+ (instancetype)unitWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor
++ (instancetype)unitWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor
 {
     return [[self alloc] initWithTitle:title size:cellType color:cellColor];
 }
 
-- (instancetype)initWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor
+- (instancetype)initWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor
 {
     self = [super init];
     if (self != nil)

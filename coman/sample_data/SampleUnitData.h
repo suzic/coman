@@ -13,7 +13,7 @@
 
 + (instancetype)randomUnit;
 
-+ (instancetype)unitWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor;
-- (instancetype)initWithTitle:(NSString *)title size:(CellType)cellType color:(UIColor *)cellColor;
++ (instancetype)unitWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor;
+- (instancetype)initWithTitle:(NSString *)title size:(NSInteger)cellType color:(UIColor *)cellColor;
 
 @end

@@ -17,6 +17,6 @@
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) UIColor* cellColor;
 
-@property (assign, nonatomic) CellType cellSizeType;
+@property (assign, nonatomic) NSInteger cellSizeType;
 
 @end

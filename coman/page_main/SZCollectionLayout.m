@@ -9,9 +9,10 @@
 #import "SZCollectionLayout.h"
 #import "SZCollectionDataSource.h"
 
-static const NSUInteger TotalUnitCountInWidth = 4;
+static const NSUInteger TotalUnitCountInWidth = 3;
 static const NSUInteger TotalUnitCountInHeight = 8;
-static const CGFloat HeightPerRow = 80;
+static const CGFloat CellInsect = 1;
+static const CGFloat HeightPerRow = 320 / TotalUnitCountInWidth;
 
 /**
  * @abstract 定义一个剩余可用布局空间对象
@@ -78,7 +79,7 @@ static const CGFloat HeightPerRow = 80;
     CGFloat contentWidth = self.collectionView.bounds.size.width;
     
     // Scroll vertically to display a full day
-    CGFloat contentHeight = HeightPerRow * TotalUnitCountInHeight;
+    CGFloat contentHeight = HeightPerRow * TotalUnitCountInHeight + CellInsect;
     
     CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
     return contentSize;
@@ -158,12 +159,12 @@ static const CGFloat HeightPerRow = 80;
 {
     // 根据实际设备尺寸获取宽度（高度则是固定的）
     CGFloat totalWidth = [self collectionViewContentSize].width;
-    CGFloat unitWidth = totalWidth / 4;
+    CGFloat unitWidth = (totalWidth - CellInsect) / TotalUnitCountInWidth;
 
     // 根据cell type计算出其尺寸
-    CellType cellType = unit.cellSizeType;
-    NSInteger hUnit = cellType / 4 + 1;
-    NSInteger wUnit = cellType % 4 + 1;
+    NSInteger cellType = unit.cellSizeType;
+    NSInteger hUnit = cellType / TotalUnitCountInWidth + 1;
+    NSInteger wUnit = cellType % TotalUnitCountInWidth + 1;
     CGFloat cellWidth = unitWidth * wUnit;
     CGFloat cellHeight = HeightPerRow * hUnit;
     
@@ -218,21 +219,20 @@ static const CGFloat HeightPerRow = 80;
             }
         }
         
-        frame.origin.x = unit.colIndex * unitWidth;
-        frame.origin.y = unit.rowIndex * HeightPerRow;
-        //NSLog(@"Frame == %d %d %d %d", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-        frame = CGRectInset(frame, 1, 1);
+        frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
+        frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
+        frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
         return frame;
     }
     
+    // 流布局已经完成，停止剩下的单元格流布局
     if (self.currentRowNumber >= TotalUnitCountInHeight)
     {
-        // 流布局已经完成，停止剩下的单元格流布局
-        unit.colIndex = 4;
+        unit.colIndex = TotalUnitCountInWidth; // 该位置必定超出行宽，看不到
         unit.rowIndex = 0;
-        frame.origin.x = unit.colIndex * unitWidth;
-        frame.origin.y = unit.rowIndex * HeightPerRow;
-        frame = CGRectInset(frame, 1, 1);
+        frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
+        frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
+        frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
         return frame;
     }
     
@@ -251,7 +251,7 @@ static const CGFloat HeightPerRow = 80;
             newss->spareWidth = self.currentColumnNumber;
             newss->spareHeight = hUnit - self.currentHeightStep;
             newss->spareColIndex = 0;
-            newss->spareRowIndex = self.currentRowNumber + 1;
+            newss->spareRowIndex = self.currentRowNumber + self.currentHeightStep;
             [self addNewSpareSpace:newss];
             self.currentHeightStep = hUnit;
         }
@@ -261,12 +261,12 @@ static const CGFloat HeightPerRow = 80;
             newss->spareWidth = wUnit;
             newss->spareHeight = self.currentHeightStep - hUnit;
             newss->spareColIndex = self.currentColumnNumber;
-            newss->spareRowIndex = self.currentRowNumber + 1;
+            newss->spareRowIndex = self.currentRowNumber + hUnit;
             [self addNewSpareSpace:newss];
         }        
 
         self.currentColumnNumber += wUnit;
-        if (self.currentColumnNumber >= 4)
+        if (self.currentColumnNumber >= TotalUnitCountInWidth)
         {
             // 流布局切换到新行时，重设行高默认为1
             self.currentRowNumber += self.currentHeightStep;
@@ -298,7 +298,7 @@ static const CGFloat HeightPerRow = 80;
         else
         {
             // 开了新行还放不下新的单元就得报错了（该Frame会放在一个不可见位置）
-            unit.colIndex = 4;  // x起点定义到屏幕宽度会正好使该框不可见
+            unit.colIndex = TotalUnitCountInWidth;  // x起点定义到屏幕宽度会正好使该框不可见
             unit.rowIndex = 0;
             // 即便放不下新的单元，还是把剩下的空间计算到空余空间中
             SpareSpace* newss = [[SpareSpace alloc] init];
@@ -315,15 +315,15 @@ static const CGFloat HeightPerRow = 80;
         }
         
         self.currentColumnNumber += wUnit;
-        if (self.currentColumnNumber >= 4)
+        if (self.currentColumnNumber >= TotalUnitCountInWidth)
         {
             self.currentRowNumber += self.currentHeightStep;
             self.currentColumnNumber = 0;
         }
     }
-    frame.origin.x = unit.colIndex * unitWidth;
-    frame.origin.y = unit.rowIndex * HeightPerRow;
-    frame = CGRectInset(frame, 1, 1);
+    frame.origin.x = unit.colIndex * unitWidth + CellInsect / 2;
+    frame.origin.y = unit.rowIndex * HeightPerRow + CellInsect / 2;
+    frame = CGRectInset(frame, CellInsect / 2, CellInsect / 2);
     return frame;
 }
 
