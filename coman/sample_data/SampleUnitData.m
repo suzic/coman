@@ -51,8 +51,8 @@
             break;
     }
     
-    uint32_t randomType = arc4random_uniform(maxHeight * maxWidth);
-    NSString *title = [NSString stringWithFormat:@"%d x %d", (randomType % maxWidth + 1), (randomType / maxWidth + 1)];
+    uint32_t randomType = arc4random_uniform((int)maxHeight * (int)maxWidth);
+    NSString *title = [NSString stringWithFormat:@"%d x %d", (randomType % (int)maxWidth + 1), (randomType / (int)maxWidth + 1)];
     return [self unitWithTitle:title size:randomType color:color];
 }
 

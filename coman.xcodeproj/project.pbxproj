@@ -21,6 +21,8 @@
 		D07A5D9919B8760E001C11D1 /* SZCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5D9819B8760E001C11D1 /* SZCollectionDataSource.m */; };
 		D07A5D9C19B87681001C11D1 /* SZCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5D9B19B87681001C11D1 /* SZCollectionViewCell.m */; };
 		D07A5DA119B878B7001C11D1 /* SampleUnitData.m in Sources */ = {isa = PBXBuildFile; fileRef = D07A5DA019B878B7001C11D1 /* SampleUnitData.m */; };
+		D0DF41F919BAF8F200B779EE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DF41F819BAF8F200B779EE /* StoreKit.framework */; };
+		D0DF41FB19BAF8F700B779EE /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DF41FA19BAF8F700B779EE /* PassKit.framework */; };
 		D0F308CC19B718790073C9CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CB19B718790073C9CD /* Foundation.framework */; };
 		D0F308CE19B718790073C9CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CD19B718790073C9CD /* CoreGraphics.framework */; };
 		D0F308D019B718790073C9CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F308CF19B718790073C9CD /* UIKit.framework */; };
@@ -80,6 +82,8 @@
 		D07A5D9D19B87733001C11D1 /* SZCellUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZCellUnit.h; sourceTree = "<group>"; };
 		D07A5D9F19B878B7001C11D1 /* SampleUnitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleUnitData.h; sourceTree = "<group>"; };
 		D07A5DA019B878B7001C11D1 /* SampleUnitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleUnitData.m; sourceTree = "<group>"; };
+		D0DF41F819BAF8F200B779EE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D0DF41FA19BAF8F700B779EE /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		D0F308C819B718790073C9CD /* coman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F308CB19B718790073C9CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0F308CD19B718790073C9CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,8 +110,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DF41FB19BAF8F700B779EE /* PassKit.framework in Frameworks */,
 				D0F308CE19B718790073C9CD /* CoreGraphics.framework in Frameworks */,
 				D0F308D219B718790073C9CD /* CoreData.framework in Frameworks */,
+				D0DF41F919BAF8F200B779EE /* StoreKit.framework in Frameworks */,
 				D0F308D019B718790073C9CD /* UIKit.framework in Frameworks */,
 				D0F308CC19B718790073C9CD /* Foundation.framework in Frameworks */,
 			);
@@ -219,6 +225,8 @@
 		D0F308CA19B718790073C9CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0DF41FA19BAF8F700B779EE /* PassKit.framework */,
+				D0DF41F819BAF8F200B779EE /* StoreKit.framework */,
 				D0F308CB19B718790073C9CD /* Foundation.framework */,
 				D0F308CD19B718790073C9CD /* CoreGraphics.framework */,
 				D0F308CF19B718790073C9CD /* UIKit.framework */,
@@ -336,6 +344,14 @@
 				TargetAttributes = {
 					D0F308C719B718790073C9CD = {
 						DevelopmentTeam = XEW439Z58D;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Passbook = {
+								enabled = 1;
+							};
+						};
 					};
 					D0F308E719B718790073C9CD = {
 						TestTargetID = D0F308C719B718790073C9CD;
@@ -519,12 +535,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhi Su (6ZQK5CPJR3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhi Su (6ZQK5CPJR3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "coman/coman-Prefix.pch";
 				INFOPLIST_FILE = "coman/coman-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "19194704-6a8d-4848-848b-20279942bea3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -534,12 +552,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhi Su (6ZQK5CPJR3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhi Su (6ZQK5CPJR3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "coman/coman-Prefix.pch";
 				INFOPLIST_FILE = "coman/coman-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "19194704-6a8d-4848-848b-20279942bea3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -34,7 +34,7 @@
     
     SZAppDelegate* ad = (SZAppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    // 在测试数据中，定义的场景大小是 4 x 12 ＝ 48 个单元的位置，生成的每个Cell占用1个单元到8个单元不等。
+    // 在测试数据中，随机生成40个单元用来做填充（不一定都放得下）
     for (NSUInteger idx = 0; idx < 40; idx++)
     {
         SampleUnitData *unit = [SampleUnitData randomUnitWidth:ad.MaxCellWidthUnit andHeight:ad.MaxCellHeightUnit];

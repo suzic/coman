@@ -120,7 +120,7 @@
     return YES;
 }
 
-#pragma mark - Helpers
+#pragma mark - Helpers of get the visible cells
 
 - (NSArray *)indexPathsOfItemsInRect:(CGRect)rect
 {
@@ -231,6 +231,8 @@
     // 流布局已经完成，停止剩下的单元格流布局
     if (self.currentRowNumber >= ad.TotalUnitCountInHeight)
     {
+        NSLog(@"%@ 无处安置……", unit);
+        
         unit.colIndex = ad.TotalUnitCountInWidth; // 该位置必定超出行宽，看不到
         unit.rowIndex = 0;
         frame.origin.x = unit.colIndex * unitWidth + ad.CellInsect / 2;
@@ -242,7 +244,7 @@
     // 流空间布局
     if ([self currentPositionIsAvaliableForUnitW:wUnit andUnitH:hUnit])
     {
-        NSLog(@"%@ 使用流布局剩余空间", unit);
+        NSLog(@"%@ 使用流布局 - 行内", unit);
         // 使用当前位置布局
         unit.colIndex = self.currentColumnNumber;
         unit.rowIndex = self.currentRowNumber;
@@ -294,7 +296,7 @@
         
         if ([self currentPositionIsAvaliableForUnitW:wUnit andUnitH:hUnit])
         {
-            NSLog(@"%@ 使用新行空间", unit);
+            NSLog(@"%@ 使用流布局 - 新行", unit);
             unit.colIndex = self.currentColumnNumber;
             unit.rowIndex = self.currentRowNumber;
         }
@@ -310,7 +312,7 @@
             newss->spareColIndex = self.currentColumnNumber;
             newss->spareRowIndex = self.currentRowNumber;
             [self addNewSpareSpace:newss];
-            NSLog(@"%@ 没位置了!", unit);
+            NSLog(@"%@ 流布局空间告罄!", unit);
             
             // 将最终的游标位置设到结尾，后面的单元不再参与流布局
             self.currentRowNumber = ad.TotalUnitCountInHeight;

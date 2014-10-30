@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vY2-gl-kFg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vY2-gl-kFg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,6 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-0j-MuX" userLabel="LEFT">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="axd-i0-Bd9"/>
@@ -30,7 +29,6 @@
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-eN-7HK" userLabel="CENTER">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="Dls-1H-6JB"/>
@@ -40,10 +38,10 @@
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmc-qf-YKq" userLabel="RIGHT">
-                                <rect key="frame" x="320" y="0.0" width="64" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="320" y="0.0" width="64" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="ee3-Hr-sJ6"/>
                                     <constraint firstAttribute="width" constant="64" id="hNr-J5-FJS"/>
                                 </constraints>
                                 <connections>
@@ -59,7 +57,6 @@
                             <constraint firstItem="Nmc-qf-YKq" firstAttribute="top" secondItem="11Z-Ve-HVe" secondAttribute="bottom" constant="-20" id="7zf-fT-vpN"/>
                             <constraint firstAttribute="trailing" secondItem="Nmc-qf-YKq" secondAttribute="trailing" constant="-64" id="Nhn-aV-Y43"/>
                             <constraint firstItem="Ivv-Go-80t" firstAttribute="top" secondItem="Pxg-0j-MuX" secondAttribute="bottom" id="Vtx-BR-FWZ"/>
-                            <constraint firstItem="Ivv-Go-80t" firstAttribute="top" secondItem="Nmc-qf-YKq" secondAttribute="bottom" id="iQy-Pg-oHe"/>
                             <constraint firstItem="O8d-eN-7HK" firstAttribute="top" secondItem="11Z-Ve-HVe" secondAttribute="bottom" constant="-20" id="sHn-yu-QJ6"/>
                             <constraint firstAttribute="centerX" secondItem="O8d-eN-7HK" secondAttribute="centerX" id="t2u-vZ-V6r"/>
                         </constraints>
@@ -86,15 +83,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="128" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naW-fz-NAl">
+                                <rect key="frame" x="0.0" y="-24" width="128" height="68"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-IS-MxQ">
+                                        <rect key="frame" x="0.0" y="24" width="128" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="T2f-On-mRU"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5Ht-IS-MxQ" secondAttribute="bottom" id="4Ao-a0-sCv"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Ht-IS-MxQ" secondAttribute="trailing" id="7hR-5t-E6n"/>
+                                    <constraint firstAttribute="height" constant="68" id="bNb-4S-sEV"/>
+                                    <constraint firstItem="5Ht-IS-MxQ" firstAttribute="leading" secondItem="naW-fz-NAl" secondAttribute="leading" id="iSM-bZ-R8E"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6P5-XX-Xp5">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="518"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="44" width="128" height="474"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGw-FK-myI">
                                 <rect key="frame" x="4" y="526" width="120" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="aa7-47-b1i"/>
                                     <constraint firstAttribute="height" constant="32" id="eKq-hl-z9q"/>
@@ -108,12 +122,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="naW-fz-NAl" secondAttribute="trailing" id="0qk-TA-ocw"/>
                             <constraint firstItem="Mml-Mf-xT3" firstAttribute="top" secondItem="6P5-XX-Xp5" secondAttribute="bottom" constant="50" id="9o5-ja-Znf"/>
-                            <constraint firstItem="6P5-XX-Xp5" firstAttribute="top" secondItem="rwL-yO-XDl" secondAttribute="bottom" id="ESc-c6-2hs"/>
+                            <constraint firstItem="naW-fz-NAl" firstAttribute="top" secondItem="rwL-yO-XDl" secondAttribute="bottom" constant="-24" id="C1f-Z1-Spv"/>
                             <constraint firstAttribute="trailing" secondItem="6P5-XX-Xp5" secondAttribute="trailing" id="GpF-pk-2Qg"/>
                             <constraint firstAttribute="centerX" secondItem="eGw-FK-myI" secondAttribute="centerX" constant="-0.5" id="P8T-om-tTh"/>
                             <constraint firstItem="Mml-Mf-xT3" firstAttribute="top" secondItem="eGw-FK-myI" secondAttribute="bottom" constant="10" id="ZdL-in-dSy"/>
+                            <constraint firstItem="6P5-XX-Xp5" firstAttribute="top" secondItem="rwL-yO-XDl" secondAttribute="bottom" constant="44" id="iBz-ub-UNx"/>
                             <constraint firstItem="6P5-XX-Xp5" firstAttribute="leading" secondItem="BhX-Rh-1SJ" secondAttribute="leading" id="sQ1-a0-byC"/>
+                            <constraint firstItem="naW-fz-NAl" firstAttribute="leading" secondItem="BhX-Rh-1SJ" secondAttribute="leading" id="stv-pX-Ruh"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -122,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="561" y="-457"/>
         </scene>
-        <!--Main View Controller - 主页-->
+        <!--看板-->
         <scene sceneID="CoL-Mo-pE5">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="ffO-f2-qJc" customClass="SZMainViewController" sceneMemberID="viewController">
@@ -141,7 +158,6 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 x 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="60" translatesAutoresizingMaskIntoConstraints="NO" id="HMG-A9-zFg">
                                             <rect key="frame" x="47" y="20" width="60" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="5Hb-c3-h0b"/>
                                                 <constraint firstAttribute="height" constant="40" id="W6z-6j-aoh"/>
@@ -169,7 +185,7 @@
                             <outlet property="delegate" destination="ffO-f2-qJc" id="9z1-0P-aeC"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="主页" id="dR5-5J-6QW">
+                    <navigationItem key="navigationItem" title="看板" id="dR5-5J-6QW">
                         <barButtonItem key="leftBarButtonItem" image="LeftCategory" id="m7f-0K-qls">
                             <connections>
                                 <action selector="showCategoryView:" destination="ffO-f2-qJc" id="oHv-oN-wgI"/>
@@ -187,14 +203,13 @@
             </objects>
             <point key="canvasLocation" x="1629" y="-1927"/>
         </scene>
-        <!--Navigation Controller - 主页-->
+        <!--看版-->
         <scene sceneID="q75-0b-aG9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="4S4-Cf-mp8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="主页" image="Tab-Center" id="xX4-eV-HLf"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="看版" image="Tab-Center" id="xX4-eV-HLf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WXI-K0-UMN">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -236,12 +251,11 @@
                         <viewControllerLayoutGuide type="bottom" id="N2r-1H-Jqm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="x4I-5C-KQr">
-                        <rect key="frame" x="0.0" y="0.0" width="64" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqz-IZ-m9S">
                                 <rect key="frame" x="16" y="5" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kqz-IZ-m9S" secondAttribute="height" multiplier="1:1" id="J0W-nx-itn"/>
                                     <constraint firstAttribute="width" constant="32" id="tun-Az-woa"/>
@@ -255,17 +269,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-l7-iBx">
                                 <rect key="frame" x="16" y="77" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Tool1"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdI-ri-vSo">
                                 <rect key="frame" x="16" y="134" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Tool2"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83g-Zb-Moc">
                                 <rect key="frame" x="16" y="191" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Tool3"/>
                             </button>
                         </subviews>
@@ -286,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="561" y="-1927"/>
         </scene>
-        <!--Activity View Controller - 活动-->
+        <!--活动-->
         <scene sceneID="bcD-qT-VVi">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="mtp-Aw-F8e" customClass="SZActivityViewController" sceneMemberID="viewController">
@@ -328,14 +339,13 @@
             </objects>
             <point key="canvasLocation" x="1629" y="-1197"/>
         </scene>
-        <!--Navigation Controller - 活动-->
+        <!--活动-->
         <scene sceneID="HBa-lU-I8n">
             <objects>
                 <navigationController definesPresentationContext="YES" id="WDy-yK-CCb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="活动" image="Tab-Activity" id="VKA-7p-GKF"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RWy-DJ-HBn">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -346,7 +356,7 @@
             </objects>
             <point key="canvasLocation" x="1101" y="-1197"/>
         </scene>
-        <!--Group View Controller - 圈子-->
+        <!--圈子-->
         <scene sceneID="ILB-e0-NOh">
             <objects>
                 <tableViewController id="rGL-cY-cV6" customClass="SZGroupViewController" sceneMemberID="viewController">
@@ -382,14 +392,13 @@
             </objects>
             <point key="canvasLocation" x="1629" y="-457"/>
         </scene>
-        <!--Navigation Controller - 圈子-->
+        <!--圈子-->
         <scene sceneID="NLK-Tt-OPb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VML-Ij-z2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="3" title="圈子" image="Tab-Group" id="DRf-H6-bVA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvt-od-Snk">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -400,7 +409,7 @@
             </objects>
             <point key="canvasLocation" x="1101" y="-457"/>
         </scene>
-        <!--Fellows View Controller - 伙伴-->
+        <!--伙伴-->
         <scene sceneID="4u2-QQ-y5U">
             <objects>
                 <tableViewController id="8rs-Dk-1KM" customClass="SZFellowsViewController" sceneMemberID="viewController">
@@ -440,14 +449,13 @@
             </objects>
             <point key="canvasLocation" x="1629" y="263"/>
         </scene>
-        <!--Navigation Controller - 伙伴-->
+        <!--伙伴-->
         <scene sceneID="aI4-2Y-1Cf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="m0e-UI-6bg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="4" title="伙伴" image="Tab-Fellows" id="A8i-y1-dwd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OIU-QL-f1M">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -458,7 +466,7 @@
             </objects>
             <point key="canvasLocation" x="1101" y="257"/>
         </scene>
-        <!--Settings View Controller - 设置-->
+        <!--设置-->
         <scene sceneID="o63-BS-YEq">
             <objects>
                 <tableViewController id="Ogw-Bt-ptl" customClass="SZSettingsViewController" sceneMemberID="viewController">
@@ -498,7 +506,7 @@
             </objects>
             <point key="canvasLocation" x="561" y="263"/>
         </scene>
-        <!--Navigation Controller - 设置-->
+        <!--设置-->
         <scene sceneID="kop-NQ-uzM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="eAs-EY-awv" sceneMemberID="viewController">
@@ -507,7 +515,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qN5-gl-rcr">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -518,14 +525,13 @@
             </objects>
             <point key="canvasLocation" x="19" y="263"/>
         </scene>
-        <!--Navigation Controller - 收藏-->
+        <!--收藏-->
         <scene sceneID="f1p-6f-ys9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Hsn-28-JQr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="5" title="收藏" image="Tab-Favorite" id="8S0-hJ-MQ2"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a52-wP-QXp">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -536,7 +542,7 @@
             </objects>
             <point key="canvasLocation" x="1101" y="1003"/>
         </scene>
-        <!--Favorite View Controller - 收藏-->
+        <!--收藏-->
         <scene sceneID="N0N-fz-09T">
             <objects>
                 <tableViewController id="RXZ-UL-nJp" customClass="SZFavoriteViewController" sceneMemberID="viewController">

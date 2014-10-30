@@ -19,7 +19,7 @@
     // 启动时状态栏隐藏
     [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
-    [self initLayoutParametersW:4 H:2];
+    [self initLayoutParametersW:5 H:3];
     return YES;
 }
 
